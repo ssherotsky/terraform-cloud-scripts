@@ -27,18 +27,6 @@
 #
 ########################################################################################
 
-variable "class_b" {
-  default = {
-    "172.16"
-  }
-}
-
-variable "se_name" {
-  default = {
-    "delete-me"
-  }
-}
-
 variable "vpc_cidr_block" {
   description = "The CIDR block that will be used for all needed subnets"
   default = "${var.class_b}.0.0/16"
