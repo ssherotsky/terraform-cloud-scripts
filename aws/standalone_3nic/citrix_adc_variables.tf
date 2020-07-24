@@ -27,6 +27,13 @@
 #
 ########################################################################################
 
+variable "se_name" {
+  default = {
+    "delete-me"
+  }
+}
+
+
 variable "vpx_ami_map" {
   description = <<EOF
 

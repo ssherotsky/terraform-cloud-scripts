@@ -27,9 +27,16 @@
 #
 ########################################################################################
 
+
+variable "se_name" {
+  default = {
+    "delete-me"
+  }
+}
+
 variable "aws_region" {
   description = "The AWS region to create things in"
-  default     = "us-east-1"
+  default     = "us-west-2"
 }
 
 variable "aws_availability_zone" {

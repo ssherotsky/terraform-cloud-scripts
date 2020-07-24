@@ -32,7 +32,7 @@ resource "aws_vpc" "terraform" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "Terraform VPC"
+    Name = "${var.se_name} VPC"
   }
 }
 
@@ -43,7 +43,7 @@ resource "aws_subnet" "management" {
   availability_zone       = var.aws_availability_zone
 
   tags = {
-    Name = "Terraform Management Subnet"
+    Name = "${var.se_name} Management Subnet"
   }
 }
 
@@ -54,7 +54,7 @@ resource "aws_subnet" "client" {
   availability_zone       = var.aws_availability_zone
 
   tags = {
-    Name = "Terraform Public Subnet"
+    Name = "${var.se_name} Public Subnet"
   }
 }
 
@@ -64,7 +64,7 @@ resource "aws_subnet" "server" {
   availability_zone = var.aws_availability_zone
 
   tags = {
-    Name = "Terraform Server Subnet"
+    Name = "${var.se_name} Server Subnet"
   }
 }
 
@@ -72,7 +72,7 @@ resource "aws_internet_gateway" "TR_iGW" {
   vpc_id = aws_vpc.terraform.id
 
   tags = {
-    Name = "Terraform Internet Gateway"
+    Name = "${var.se_name} Internet Gateway"
   }
 }
 
@@ -85,7 +85,7 @@ resource "aws_route_table" "main_rt_table" {
   }
 
   tags = {
-    Name = "Terraform Main Route Table"
+    Name = "${var.se_name} Main Route Table"
   }
 }
 
@@ -98,7 +98,7 @@ resource "aws_default_security_group" "default" {
   vpc_id = aws_vpc.terraform.id
 
   tags = {
-    Name = "Terraform Default-Security-Group"
+    Name = "${var.se_name} Default-Security-Group"
   }
 }
 
@@ -122,7 +122,7 @@ resource "aws_security_group_rule" "default_egress" {
 
 resource "aws_security_group" "management" {
   vpc_id      = aws_vpc.terraform.id
-  name        = "Terraform management"
+  name        = "${var.se_name} management"
   description = "Allow everything from within the management network"
 
   ingress {
@@ -140,12 +140,12 @@ resource "aws_security_group" "management" {
   }
 
   tags = {
-    Name = "Terraform Management Security Group"
+    Name = "${var.se_name} Management Security Group"
   }
 }
 
 resource "aws_security_group" "client" {
-  name        = "Terraform client side"
+  name        = "${var.se_name} client side"
   description = "Allow Web Traffic from everywhere"
 
   vpc_id = aws_vpc.terraform.id
@@ -172,12 +172,12 @@ resource "aws_security_group" "client" {
   }
 
   tags = {
-    Name = "Terraform Client Security Group"
+    Name = "${var.se_name} Client Security Group"
   }
 }
 
 resource "aws_security_group" "server" {
-  name        = "Terraform server side"
+  name        = "${var.se_name} server side"
   description = "Allow all traffic from the server subnet"
 
   vpc_id = aws_vpc.terraform.id
@@ -197,6 +197,6 @@ resource "aws_security_group" "server" {
   }
 
   tags = {
-    Name = "Terraform Server Security Group"
+    Name = "${var.se_name} Server Security Group"
   }
 }

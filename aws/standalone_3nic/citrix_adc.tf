@@ -38,7 +38,7 @@ resource "aws_instance" "citrix_adc" {
   }
 
   tags = {
-    Name = "Terraform Citrix ADC"
+    Name = "${var.se_name} Citrix ADC"
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_network_interface" "management" {
   security_groups = [aws_security_group.management.id]
 
   tags = {
-    Name        = "Terraform NS Management interface"
+    Name        = "${var.se_name} NS Management interface"
     Description = "MGMT Interface for Citrix ADC"
   }
 }
@@ -62,7 +62,7 @@ resource "aws_network_interface" "client" {
   }
 
   tags = {
-    Name        = "Terraform NS External Interface"
+    Name        = "${var.se_name} NS External Interface"
     Description = "External Interface for Citrix ADC"
   }
 }
@@ -77,7 +77,7 @@ resource "aws_network_interface" "server" {
   }
 
   tags = {
-    Name        = "Terraform NS Internal Interface"
+    Name        = "${var.se_name} NS Internal Interface"
     Description = "Internal Interface for Citrix ADC"
   }
 }
@@ -90,7 +90,7 @@ resource "aws_eip" "nsip" {
   depends_on = [aws_instance.citrix_adc]
 
   tags = {
-    Name = "Terraform NSIP"
+    Name = "${var.se_name} NSIP"
   }
 }
 
@@ -102,6 +102,6 @@ resource "aws_eip" "client" {
   depends_on = [aws_instance.citrix_adc]
 
   tags = {
-    Name = "Terraform Public Data IP"
+    Name = "${var.se_name} Public Data IP"
   }
 }

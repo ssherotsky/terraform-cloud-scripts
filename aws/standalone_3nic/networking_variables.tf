@@ -27,6 +27,13 @@
 #
 ########################################################################################
 
+
+variable "se_name" {
+  default = {
+    "delete-me"
+  }
+}
+
 variable "vpc_cidr_block" {
   description = "The CIDR block that will be used for all needed subnets"
 }
