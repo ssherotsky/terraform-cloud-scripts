@@ -19,3 +19,6 @@ plan
 
 # Temp directory
 temp
+
+# SSH keys
+*.pem
