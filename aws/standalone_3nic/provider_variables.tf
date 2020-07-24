@@ -27,7 +27,6 @@
 #
 ########################################################################################
 
-
 variable "aws_region" {
   description = "The AWS region to create things in"
   default     = "us-west-2"
@@ -35,6 +34,7 @@ variable "aws_region" {
 
 variable "aws_availability_zone" {
   description = "Availability zone to create things in"
+  default     = "us-west-2a"
 }
 
 variable "aws_access_key" {
