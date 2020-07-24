@@ -27,6 +27,11 @@
 #
 ########################################################################################
 
+variable "class_b" {
+  default = {
+    "172.16"
+  }
+}
 
 variable "se_name" {
   default = {
@@ -36,20 +41,25 @@ variable "se_name" {
 
 variable "vpc_cidr_block" {
   description = "The CIDR block that will be used for all needed subnets"
-}
+  default = "${var.class_b}.0.0/16"
+  }
 
 variable "management_subnet_cidr_block" {
   description = "The CIDR block that will be used for the management subnet. Must be contained inside the VPC cidr block."
+  default = "${var.class_b}.0.0/24"
 }
 
 variable "client_subnet_cidr_block" {
   description = "The CIDR block that will be used for the client subnet. Must be contained inside the VPC cidr block."
+  default = "${var.class_b}.1.0/24"
 }
 
 variable "server_subnet_cidr_block" {
   description = "The CIDR block that will be used for the server subnet. Must be contained inside the VPC cidr block."
+  default = "${var.class_b}.2.0/24"
 }
 
 variable "controlling_subnet" {
   description = "The CIDR block of the machines that will SSH into the NSIPs of the VPX HA pair."
-}
+  default = "0.0.0.0/0"
+  }
