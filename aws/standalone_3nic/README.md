@@ -3,7 +3,7 @@
 This folder contains the configuration scripts to deploy
 * A VPC with 3 subnets and associated security groups and routing tables.
 * A single Citrix ADC instance with 3 NICs.
-* An SSH keypair to manage ssh access to the Citrix ADC instance.
+* An ADM Agent sharing management subnet with the ADC.
 
 
 ## VPC configuration
