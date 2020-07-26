@@ -28,7 +28,7 @@
 ########################################################################################
 
 
-variable "vpx_ami_map" {
+variable "adm_ami_map" {
   description = <<EOF
 
 AMI map for ADM Agent
@@ -43,7 +43,7 @@ EOF
   }
 }
 
-variable "ns_instance_type" {
+variable "adm_instance_type" {
   description = <<EOF
 EC2 instance type.
 

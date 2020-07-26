@@ -31,5 +31,5 @@ output "adm_nsip" {
 }
 
 output "instance_id" {
-  value = aws_instance.citrix_adc.id
+  value = aws_instance.citrix_adm.id
 }
