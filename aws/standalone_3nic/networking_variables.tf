@@ -55,25 +55,23 @@ variable "aws_secret_key" {
 # own and upload it via the EC2 dashboard
 ########################################################################################
 
-# variable "aws_ssh_key_name" {
-#   description = "SSH key name stored on AWS EC2 to access EC2 instances"
+ variable "aws_ssh_key_name" {
+   description = "SSH key name stored on AWS EC2 to access EC2 instances"
+ }
+
+ variable "aws_ssh_public_key" {
+   description = "The public part of the SSH key you will use to access EC2 instances"
+ }
+
+# resource "tls_private_key" "example" {
+#   algorithm = "RSA"
+#   rsa_bits  = 4096
 # }
 
-# variable "aws_ssh_public_key" {
-#   description = "The public part of the SSH key you will use to access EC2 instances"
+# resource "aws_key_pair" "generated_key" {
+#   key_name   = "${var.se_name}.pem"
+#   public_key = "${tls_private_key.example.public_key_openssh}"
 # }
-
-# variable "key_name" {}
-
-resource "tls_private_key" "example" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
-resource "aws_key_pair" "generated_key" {
-  key_name   = "${var.se_name}"
-  public_key = "${tls_private_key.example.public_key_openssh}"
-}
 
 ########################################################################################
 # Network -- These should be unique
