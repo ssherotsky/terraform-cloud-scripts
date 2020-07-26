@@ -30,6 +30,6 @@ output "adm_nsip" {
   value = aws_eip.nsip.public_ip
 }
 
-output "instance_id" {
+output "adm_instance_id" {
   value = aws_instance.citrix_adm.id
 }
