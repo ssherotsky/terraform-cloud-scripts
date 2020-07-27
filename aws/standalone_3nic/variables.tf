@@ -52,7 +52,8 @@ variable "aws_secret_key" {
 
 ########################################################################################
 # AWS SSH key pair and public key -- Create a keypair via EC2 dashboard or create your
-# own and upload it via the EC2 dashboard
+# own and upload it via the EC2 dashboard. You can enter default values if you use
+# your own keys but make sure to read and follow the ssh_key.tf comments too
 ########################################################################################
 
  variable "aws_ssh_key_name" {
@@ -63,18 +64,8 @@ variable "aws_secret_key" {
    description = "The public part of the SSH key you will use to access EC2 instances"
  }
 
-# resource "tls_private_key" "example" {
-#   algorithm = "RSA"
-#   rsa_bits  = 4096
-# }
-
-# resource "aws_key_pair" "generated_key" {
-#   key_name   = "${var.se_name}.pem"
-#   public_key = "${tls_private_key.example.public_key_openssh}"
-# }
-
 ########################################################################################
-# Network -- These should be unique
+# Network -- Customize this if you want. Common subnets can exist in different VPCs
 ########################################################################################
 
 variable "vpc_cidr_block" {

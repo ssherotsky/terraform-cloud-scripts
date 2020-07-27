@@ -27,10 +27,19 @@
 #
 ########################################################################################
 
+
+########################################################################################
+# Uncomment this section and comment the one below to use your pre-existing key in AWS
+########################################################################################
+
 # resource "aws_key_pair" "general_access_key" {
 #   key_name   = var.aws_ssh_key_name
 #   public_key = var.aws_ssh_public_key
 # }
+
+########################################################################################
+# Uncomment this section and comment the one above to create a key on the fly 
+########################################################################################
 
 resource "tls_private_key" "example" {
   algorithm = "RSA"
