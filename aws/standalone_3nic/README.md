@@ -1,10 +1,26 @@
-# Citrix ADC 3 Network Interface deployment
+# Citrix ADC 3 Network Interface with ADM Agent deployment
+
+Some changes from the master citrix/terraform-cloud-scripts repo include:
++ Consolidation of variables into single file, variables.tf
++ Added automatic SSH key generation as default. Read comments in ssh_key.tf and variables.tf to use custom keys
++ An ADM Agent sharing management subnet with the ADC.
+
+For everyone's benefit, make sure to change the se_name value in variables.tf to your initials
+
+########################################################################################
+#
+# My goal with these changes is to be able to quickly deploy a simple environemnt that
+# can be managed and licensed thropgh ADM Service for testing and easily removed to clean
+# up for other SEs and prevent unecessary AWS costs.
+#
+# As a result of the notes above, some of the information below is out of date.
+#
+########################################################################################
 
 This folder contains the configuration scripts to deploy
 * A VPC with 3 subnets and associated security groups and routing tables.
 * A single Citrix ADC instance with 3 NICs.
-* An ADM Agent sharing management subnet with the ADC.
-
+* An SSH keypair to manage ssh access to the Citrix ADC instance.
 
 ## VPC configuration
 
