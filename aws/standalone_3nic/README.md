@@ -7,15 +7,11 @@ Some changes from the master citrix/terraform-cloud-scripts repo include:
 
 For everyone's benefit, make sure to change the se_name value in variables.tf to your initials
 
-########################################################################################
-#
-# My goal with these changes is to be able to quickly deploy a simple environemnt that
-# can be managed and licensed thropgh ADM Service for testing and easily removed to clean
-# up for other SEs and prevent unecessary AWS costs.
-#
-# As a result of the notes above, some of the information below is out of date.
-#
-########################################################################################
+ My goal with these changes is to be able to quickly deploy a simple environemnt that
+ can be managed and licensed thropgh ADM Service for testing and easily removed to clean
+ up for other SEs and prevent unecessary AWS costs.
+
+ As a result of the notes above, some of the information below is out of date.
 
 This folder contains the configuration scripts to deploy
 * A VPC with 3 subnets and associated security groups and routing tables.
