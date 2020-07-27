@@ -37,7 +37,7 @@ resource "tls_private_key" "example" {
   rsa_bits  = 4096
 }
 
-resource "aws_key_pair" "general_accss_key" {
+resource "aws_key_pair" "general_access_key" {
   key_name   = "${var.se_name}.pem"
-  public_key = "${tls_private_key.example.public_key_openssh}"
+  public_key = "${tls_private_key.example.public_key_openssh}.pub"
 }
